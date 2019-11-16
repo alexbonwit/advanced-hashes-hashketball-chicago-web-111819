@@ -274,33 +274,59 @@ end
 
 def most_points_scored
   most_points = 0
+  counter = 0
   
-  game_hash.each do |teams, info|
-    info.each do |stats, details|
-      binding.pry
-      counter = 0
-      while counter < info[:players].length do
-        if info[:players][counter][:points] > most_points
-          most_points = info[:players][counter][:points]
-        end
-        counter += 1
-      end
-      count = 0
-      while count < info[:players].length
-        if most_points == info[:players][count][:points]
-          return info[:players][count][:player_name]
-        end
-        count += 1
-      end
+  while counter < game_hash[:home][:players].length do
+    if game_hash[:home][:players][counter][:points] > most_points
+      most_points = game_hash[:home][:players][counter][:points]
     end
-    
+    if game_hash[:away][:players][counter][:points] > most_points
+      most_points = game_hash[:away][:players][counter][:points]
+    end
+    counter += 1
   end
+  
+  count = 0
+  
+  while count < game_hash[:home][:players].length do
+    if most_points == game_hash[:home][:players][count][:points]
+      return game_hash[:home][:players][count][:player_name]
+    end
+    if most_points == game_hash[:away][:players][count][:points]
+      return game_hash[:away][:players][count][:player_name]
+    end
+    count += 1
+  end
+  
+  # game_hash.each do |teams, info|
+  #   info.each do |stats, details|
+  #     binding.pry
+  #     counter = 0
+  #     while counter < info[:players].length do
+  #       if info[:players][counter][:points] > most_points
+  #         most_points = info[:players][counter][:points]
+  #       end
+  #       counter += 1
+  #     end
+  #     count = 0
+  #     while count < info[:players].length
+  #       if most_points == info[:players][count][:points]
+  #         return info[:players][count][:player_name]
+  #       end
+  #       count += 1
+  #     end
+  #   end
+    
+  # end
   
 
 end
 
 
 def winning_team
+  nets_points = 0
+  hornets_points = 0
+  
   
 end
 
