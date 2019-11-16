@@ -353,7 +353,7 @@ def player_with_longest_name
       longest_name = game_hash[:home][:players][counter][:player_name].length
     end
     if game_hash[:away][:players][counter][:player_name].length > longest_name
-      longest_name = game_hash[:home][:players][counter][:player_name].length
+      longest_name = game_hash[:away][:players][counter][:player_name].length
     end
     counter += 1
   end
