@@ -327,6 +327,19 @@ def winning_team
   nets_points = 0
   hornets_points = 0
   
+  counter = 0
+  
+  while counter < game_hash[:home][:players].length do
+    nets_points += game_hash[:home][:players][counter][:points]
+    hornets_points += game_hash[:away][:players][counter][:points]
+    counter += 1
+  end
+  
+  if nets_points > hornets_points
+    return "Brooklyn Nets"
+  else
+    return "Charlotte Hornets"
+  end
   
 end
 
