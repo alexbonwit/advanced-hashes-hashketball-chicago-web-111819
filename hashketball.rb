@@ -390,11 +390,14 @@ def long_name_steals_a_ton?
   count = 0
   
   while count < game_hash[:home][:players].length do
-    if most_steals == game_hash[:home][:players][count][:steals] && game_hash[:home][:players][counter][:points]
+    if most_steals == game_hash[:home][:players][count][:steals] && game_hash[:home][:players][count][:player_name] == player_with_longest_name
+      return true
+    end
+    if most_steals == game_hash[:away][:players][count][:steals] && game_hash[:away][:players][count][:player_name] == player_with_longest_name
       return true
     end
     count += 1
   end
-  
+  return false
 end
 
