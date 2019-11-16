@@ -272,6 +272,44 @@ end
 
 
 
+def most_points_scored
+  most_points = 0
+  
+  game_hash.each do |teams, info|
+    info.each do |stats, details|
+      counter = 0
+      while counter < info[:players].length do
+        if info[:players][counter][:points] > most_points
+          most_points = info[:players][counter][:points]
+        end
+        counter += 1
+      end
+      count = 0
+      while count < info[:players].length
+        if most_points == info[:players][count][:points]
+          return info[:players][count][:player_name]
+        end
+        count += 1
+      end
+    end
+    
+  end
+  
+
+end
 
 
+def winning_team
+  
+end
+
+
+def player_with_longest_name
+  
+end
+
+
+def long_name_steals_a_ton?
+  
+end
 
