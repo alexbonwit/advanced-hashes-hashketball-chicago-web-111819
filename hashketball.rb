@@ -345,6 +345,30 @@ end
 
 
 def player_with_longest_name
+  longest_name = 0
+  counter = 0
+  
+  while counter < game_hash[:home][:players].length do
+    if game_hash[:home][:players][counter][:player_name].length > longest_name
+      longest_name = game_hash[:home][:players][counter][:player_name].length
+    end
+    if game_hash[:away][:players][counter][:player_name].length > longest_name
+      longest_name = game_hash[:home][:players][counter][:player_name].length
+    end
+    counter += 1
+  end
+  
+  count = 0
+  
+  while count < game_hash[:home][:players].length do
+    if longest_name == game_hash[:home][:players][count][:player_name].length
+      return game_hash[:home][:players][count][:player_name]
+    end
+    if longest_name == game_hash[:away][:players][count][:player_name].length
+      return game_hash[:away][:players][count][:player_name]
+    end
+    count += 1
+  end
   
 end
 
