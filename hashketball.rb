@@ -277,6 +277,7 @@ def most_points_scored
   
   game_hash.each do |teams, info|
     info.each do |stats, details|
+      binding.pry
       counter = 0
       while counter < info[:players].length do
         if info[:players][counter][:points] > most_points
